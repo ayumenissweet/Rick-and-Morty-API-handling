@@ -2,15 +2,73 @@
 <html lang="en">
   <head>
     <title>Hello, World</title>
+    <link rel="stylesheet" href="styles/main.css" />
   </head>
   <body>
-    <h1>Tap to Feed the cat</h1>
-    <fieldset>
-      <form type="submit">
-        <input type="text" placeholder="Enter animal food" />
-        <button type="submit">Click here</button>
-      </form>
-    </fieldset>
-    <script defer src="../dist/index.js"></script>
+    <h1>Rick and morty API implementation</h1>
+    <form type="submit">
+      <fieldset class="big-field">
+        <legend>Character Query</legend>
+        <label for=""
+          >Character ID (can implement multiple ids between ',')</label
+        >
+        <input id="" />
+        <fieldset class="mini-field">
+          <legend>
+            Extra Details (in case of not knowing the id, can fill one or more)
+          </legend>
+          <label for="">Name</label>
+          <input id="" />
+          <label for="">Status (Alive, Dead, Unknown)</label>
+          <input id="" />
+          <label for="">Species</label>
+          <input id="" />
+          <label for="">Type</label>
+          <input id="" />
+          <label for="">gender</label>
+          <input id="" />
+        </fieldset>
+        <button type="submit">Submit</button>
+      </fieldset>
+
+      <fieldset class="big-field">
+        <legend>Location Query</legend>
+        <label for=""
+          >Location ID (can implement multiple ids between ',')</label
+        >
+        <input id="" />
+        <fieldset class="mini-field">
+          <legend>
+            Extra Details (in case of not knowing the id, can fill one or more)
+          </legend>
+          <label for="">Name</label>
+          <input id="" />
+          <label for="">Type</label>
+          <input id="" />
+          <label for="">dimension</label>
+          <input id="" />
+        </fieldset>
+        <button type="submit">Submit</button>
+      </fieldset>
+
+      <fieldset class="big-field">
+        <legend>Episode Query</legend>
+        <label for=""
+          >Episode ID (can implement multiple ids between ',')</label
+        >
+        <input id="" />
+        <fieldset class="mini-field">
+          <legend>
+            Extra Details (in case of not knowing the id, can fill one or more)
+          </legend>
+          <label for="">Name</label>
+          <input id="" />
+          <label for="">Episode</label>
+          <input id="" />
+        </fieldset>
+        <button type="submit">Submit</button>
+      </fieldset>
+    </form>
+    <script defer src="../dist/main.js"></script>
   </body>
 </html>
