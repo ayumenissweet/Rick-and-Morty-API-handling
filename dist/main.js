@@ -8,17 +8,27 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const form = document.querySelector("form");
-if (form) {
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        handleForm();
-    });
-}
-function handleForm() {
+//just preparations.. these don't exist yet except the first one
+const characterSearchID = document.querySelector(".id-search1");
+const locationSearchID = document.querySelector(".id-search2");
+const episodeSearchID = document.querySelector(".id-search3");
+//id search selectors
+const idInput1 = document.querySelector("#id-input1");
+const idInput2 = document.querySelector("#id-input2");
+const idInput3 = document.querySelector("#id-input3");
+characterSearchID === null || characterSearchID === void 0 ? void 0 : characterSearchID.addEventListener("click", (e) => {
+    if (!idInput1)
+        return;
+    handleClick("character", idInput1);
+});
+function handleClick(type, idInput) {
     return __awaiter(this, void 0, void 0, function* () {
-        const myAwesomeChar = yield fetchData("https://rickandmortyapi.com/api/character/1");
-        console.log(myAwesomeChar);
+        const x = idInput.value.split(",").map(Number).filter(Boolean);
+        const uniqueX = [...new Set(x)];
+        const output = //based on the type return the correct API link
+         `https://rickandmortyapi.com/api/${type}/` + JSON.stringify(uniqueX);
+        const object = yield fetchData(output);
+        console.log(object);
     });
 }
 function fetchData(information) {

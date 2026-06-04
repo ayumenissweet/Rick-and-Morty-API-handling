@@ -1,74 +1,83 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Hello, World</title>
+    <title>Rick and Morty API</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles/main.css" />
   </head>
   <body>
-    <h1>Rick and morty API implementation</h1>
-    <form type="submit">
-      <fieldset class="big-field">
-        <legend>Character Query</legend>
-        <label for=""
-          >Character ID (can implement multiple ids between ',')</label
-        >
-        <input id="" />
-        <fieldset class="mini-field">
-          <legend>
-            Extra Details (in case of not knowing the id, can fill one or more)
-          </legend>
-          <label for="">Name</label>
-          <input id="" />
-          <label for="">Status (Alive, Dead, Unknown)</label>
-          <input id="" />
-          <label for="">Species</label>
-          <input id="" />
-          <label for="">Type</label>
-          <input id="" />
-          <label for="">gender</label>
-          <input id="" />
-        </fieldset>
-        <button type="submit">Submit</button>
-      </fieldset>
+    <div class="container">
+      <div class="select-buttons">
+        <button class="select-card active">Characters</button>
+        <button class="select-card">Locations</button>
+        <button class="select-card">Episodes</button>
+      </div>
 
-      <fieldset class="big-field">
-        <legend>Location Query</legend>
-        <label for=""
-          >Location ID (can implement multiple ids between ',')</label
-        >
-        <input id="" />
-        <fieldset class="mini-field">
-          <legend>
-            Extra Details (in case of not knowing the id, can fill one or more)
-          </legend>
-          <label for="">Name</label>
-          <input id="" />
-          <label for="">Type</label>
-          <input id="" />
-          <label for="">dimension</label>
-          <input id="" />
-        </fieldset>
-        <button type="submit">Submit</button>
-      </fieldset>
+      <div class="search-section">
+        <label for="id-input1" class="section-label">Search By ID :</label>
+        <div class="input-with-btn">
+          <input
+            id="id-input1"
+            type="text"
+            placeholder="1 OR [1,2,3] for multi IDs"
+          />
+          <button class="search-btn id-search1">Search</button>
+        </div>
+      </div>
 
-      <fieldset class="big-field">
-        <legend>Episode Query</legend>
-        <label for=""
-          >Episode ID (can implement multiple ids between ',')</label
-        >
-        <input id="" />
-        <fieldset class="mini-field">
-          <legend>
-            Extra Details (in case of not knowing the id, can fill one or more)
-          </legend>
-          <label for="">Name</label>
-          <input id="" />
-          <label for="">Episode</label>
-          <input id="" />
-        </fieldset>
-        <button type="submit">Submit</button>
-      </fieldset>
-    </form>
-    <script defer src="../dist/main.js"></script>
+      <div class="horiz-divider">
+        <div class="divider"></div>
+        <p>Query Search</p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="character-container">
+        <!-- Free-text: name stays as <input> -->
+        <div class="input-group">
+          <label for="name">Character Name</label>
+          <input id="name" type="text" placeholder="Rick Sanchez" />
+        </div>
+
+        <div class="input-group">
+          <label for="status">Character Status</label>
+          <select id="status">
+            <option value="">-- Select Status --</option>
+            <option value="alive">Alive</option>
+            <option value="dead">Dead</option>
+            <option value="unknown">Unknown</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="gender">Character Gender</label>
+          <select id="gender">
+            <option value="">-- Select Gender --</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="genderless">Genderless</option>
+            <option value="unknown">Unknown</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="species">Character Species</label>
+          <select id="species">
+            <option value="">-- Select Species --</option>
+            <option value="human">Human</option>
+            <option value="animal">Animal</option>
+            <option value="plant">Plant</option>
+          </select>
+        </div>
+      </div>
+      <button class="search-btn query-submit-btn">Search</button>
+    </div>
+    <script src="../dist/main.js" defer></script>
   </body>
 </html>
