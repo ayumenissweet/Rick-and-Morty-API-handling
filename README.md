@@ -21,8 +21,25 @@ This program can manage many events, emit them, and then call their callback fun
 - [x] create types for each event
 - [x] create return types for each event
 - [x] enhance the emit/state functions
-- [ ] test and debug!
-#### Part 2 :
-- [ ] 
+- [x] test and debug!
+--- 
 
-## Project 2 : ....
+## Project 2 : Rick and Morty API
+This is an API that returns cartoon characters from https://rickandmortyapi.com/api/
+
+### Reasons to pick this API :
+- It had a documentation
+- it is well detailed, and has a lot of typing to work with
+- it splits content into three categories, which practices generics
+
+### How the program works (under developement)
+**ID search :** you can search for characters using their ids, can either search a single ID or multiple IDs
+**Query search :** much more complex, can use filters like `name`,`status`,`gender`,`type` to search for characters
+
+### To-do : 
+- Create the UI for the API response
+- Add the option to open locations/episodes and search for them individually
+- Fix typing errors
+
+### How to run : 
+inside the working directory : go to the `index.html` file and use the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension from VS code, which opens the website in your browser

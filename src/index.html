@@ -39,16 +39,20 @@
       </div>
 
       <div class="character-container">
-        <!-- Free-text: name stays as <input> -->
         <div class="input-group">
           <label for="name">Character Name</label>
-          <input id="name" type="text" placeholder="Rick Sanchez" />
+          <input
+            id="name"
+            class="char-name"
+            type="text"
+            placeholder="Rick Sanchez"
+          />
         </div>
 
         <div class="input-group">
           <label for="status">Character Status</label>
-          <select id="status">
-            <option value="">-- Select Status --</option>
+          <select id="status" class="char-status">
+            <option value="">-- Not specified --</option>
             <option value="alive">Alive</option>
             <option value="dead">Dead</option>
             <option value="unknown">Unknown</option>
@@ -57,8 +61,8 @@
 
         <div class="input-group">
           <label for="gender">Character Gender</label>
-          <select id="gender">
-            <option value="">-- Select Gender --</option>
+          <select id="gender" class="char-gender">
+            <option value="">-- Not specified --</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="genderless">Genderless</option>
@@ -68,15 +72,15 @@
 
         <div class="input-group">
           <label for="species">Character Species</label>
-          <select id="species">
-            <option value="">-- Select Species --</option>
+          <select id="species" class="char-species">
+            <option value="">-- not specified --</option>
             <option value="human">Human</option>
             <option value="animal">Animal</option>
             <option value="plant">Plant</option>
           </select>
         </div>
       </div>
-      <button class="search-btn query-submit-btn">Search</button>
+      <button class="char-query search-btn query-submit-btn">Search</button>
     </div>
     <script src="../dist/main.js" defer></script>
   </body>
