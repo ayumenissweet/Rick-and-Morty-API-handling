@@ -152,6 +152,18 @@ input::placeholder {
   margin-bottom: 30px;
 }
 
+.location-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.episode-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .input-group {
   display: flex;
   flex-direction: column;
@@ -168,6 +180,7 @@ input::placeholder {
   align-self: center;
   padding: 16px 40px;
   border-radius: 12px;
+  margin-top: 20px;
 }
 
 select {
@@ -197,4 +210,8 @@ select option[value=""] {
 select option {
   background-color: var(--box-color);
   color: var(--font-accent);
+}
+
+.hidden {
+  display: none;
 }

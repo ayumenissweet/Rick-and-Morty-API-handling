@@ -15,12 +15,12 @@
   <body>
     <div class="container">
       <div class="select-buttons">
-        <button class="select-card active">Characters</button>
-        <button class="select-card">Locations</button>
-        <button class="select-card">Episodes</button>
+        <button class="char-select-btn select-card active">Characters</button>
+        <button class="location-select-btn select-card">Locations</button>
+        <button class="episode-select-btn select-card">Episodes</button>
       </div>
 
-      <div class="search-section">
+      <div class="search-section char-id-search">
         <label for="id-input1" class="section-label">Search By ID :</label>
         <div class="input-with-btn">
           <input
@@ -32,6 +32,30 @@
         </div>
       </div>
 
+      <div class="search-section location-id-search hidden">
+        <label for="id-input2" class="section-label">Search By ID :</label>
+        <div class="input-with-btn">
+          <input
+            id="id-input2"
+            type="text"
+            placeholder="1 OR [1,2,3] for multi IDs"
+          />
+          <button class="search-btn id-search2">Search</button>
+        </div>
+      </div>
+
+      <div class="search-section episode-id-search hidden">
+        <label for="id-input3" class="section-label">Search By ID :</label>
+        <div class="input-with-btn">
+          <input
+            id="id-input3"
+            type="text"
+            placeholder="1 OR [1,2,3] for multi IDs"
+          />
+          <button class="search-btn id-search3">Search</button>
+        </div>
+      </div>
+
       <div class="horiz-divider">
         <div class="divider"></div>
         <p>Query Search</p>
@@ -40,9 +64,9 @@
 
       <div class="character-container">
         <div class="input-group">
-          <label for="name">Character Name</label>
+          <label for="character-name">Character Name</label>
           <input
-            id="name"
+            id="character-name"
             class="char-name"
             type="text"
             placeholder="Rick Sanchez"
@@ -80,7 +104,68 @@
           </select>
         </div>
       </div>
+
+      <div class="location-container hidden">
+        <div class="input-group">
+          <label for="location-name">Location Name</label>
+          <input
+            id="location-name"
+            class="location-name"
+            type="text"
+            placeholder="Earth (C-137)"
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="type">Location Type</label>
+          <input
+            id="type"
+            class="location-type"
+            type="text"
+            placeholder="Space Station"
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="dimension">Location dimension</label>
+          <input
+            id="dimension"
+            class="location-dimension"
+            type="text"
+            placeholder="Dimension C-137"
+          />
+        </div>
+      </div>
+
+      <div class="episode-container hidden">
+        <div class="input-group">
+          <label for="episode-name">Episode Name</label>
+          <input
+            id="episode-name"
+            class="episode-name"
+            type="text"
+            placeholder="Pilot"
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="code">Episode Code</label>
+          <input
+            id="code"
+            class="episode-code"
+            type="text"
+            placeholder="S01E01"
+          />
+        </div>
+      </div>
+
       <button class="char-query search-btn query-submit-btn">Search</button>
+      <button class="location-query search-btn query-submit-btn hidden">
+        Search
+      </button>
+      <button class="episode-query search-btn query-submit-btn hidden">
+        Search
+      </button>
     </div>
     <script src="../dist/main.js" defer></script>
   </body>
