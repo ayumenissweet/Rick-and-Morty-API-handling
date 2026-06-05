@@ -134,9 +134,9 @@ async function handleIDClick<T extends keyof IDMap>(
     console.log(object);
   } catch (error) {
     if (error instanceof Error) {
-      console.warn(`Failed gracefully: ${error.message}`);
+      console.warn(`ERROR! error status : ${error.message}`);
     } else {
-      console.error("An unexpected, non-standard error occurred", error);
+      console.error("An unknown error occured", error);
     }
   }
 }
