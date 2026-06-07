@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Rick and Morty API</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="select-buttons">
+        <button class="char-select-btn select-card active">Characters</button>
+        <button class="location-select-btn select-card">Locations</button>
+        <button class="episode-select-btn select-card">Episodes</button>
+      </div>
+
+      <div class="search-section char-id-search">
+        <label for="id-input1" class="section-label">Search By ID :</label>
+        <div class="input-with-btn">
+          <input
+            id="id-input1"
+            type="text"
+            placeholder="1 OR [1,2,3] for multi IDs"
+          />
+          <button class="search-btn id-search1">Search</button>
+        </div>
+      </div>
+
+      <div class="search-section location-id-search hidden">
+        <label for="id-input2" class="section-label">Search By ID :</label>
+        <div class="input-with-btn">
+          <input
+            id="id-input2"
+            type="text"
+            placeholder="1 OR [1,2,3] for multi IDs"
+          />
+          <button class="search-btn id-search2">Search</button>
+        </div>
+      </div>
+
+      <div class="search-section episode-id-search hidden">
+        <label for="id-input3" class="section-label">Search By ID :</label>
+        <div class="input-with-btn">
+          <input
+            id="id-input3"
+            type="text"
+            placeholder="1 OR [1,2,3] for multi IDs"
+          />
+          <button class="search-btn id-search3">Search</button>
+        </div>
+      </div>
+
+      <div class="horiz-divider">
+        <div class="divider"></div>
+        <p>Query Search</p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="character-container">
+        <div class="input-group">
+          <label for="character-name">Character Name</label>
+          <input
+            id="character-name"
+            class="char-name"
+            type="text"
+            placeholder="Rick Sanchez"
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="status">Character Status</label>
+          <select id="status" class="char-status">
+            <option value="">-- Not specified --</option>
+            <option value="alive">Alive</option>
+            <option value="dead">Dead</option>
+            <option value="unknown">Unknown</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="gender">Character Gender</label>
+          <select id="gender" class="char-gender">
+            <option value="">-- Not specified --</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="genderless">Genderless</option>
+            <option value="unknown">Unknown</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="species">Character Species</label>
+          <select id="species" class="char-species">
+            <option value="">-- not specified --</option>
+            <option value="human">Human</option>
+            <option value="animal">Animal</option>
+            <option value="plant">Plant</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="location-container hidden">
+        <div class="input-group">
+          <label for="location-name">Location Name</label>
+          <input
+            id="location-name"
+            class="location-name"
+            type="text"
+            placeholder="Earth (C-137)"
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="type">Location Type</label>
+          <input
+            id="type"
+            class="location-type"
+            type="text"
+            placeholder="Space Station"
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="dimension">Location dimension</label>
+          <input
+            id="dimension"
+            class="location-dimension"
+            type="text"
+            placeholder="Dimension C-137"
+          />
+        </div>
+      </div>
+
+      <div class="episode-container hidden">
+        <div class="input-group">
+          <label for="episode-name">Episode Name</label>
+          <input
+            id="episode-name"
+            class="episode-name"
+            type="text"
+            placeholder="Pilot"
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="code">Episode Code</label>
+          <input
+            id="code"
+            class="episode-code"
+            type="text"
+            placeholder="S01E01"
+          />
+        </div>
+      </div>
+
+      <button class="char-query search-btn query-submit-btn">Search</button>
+      <button class="location-query search-btn query-submit-btn hidden">
+        Search
+      </button>
+      <button class="episode-query search-btn query-submit-btn hidden">
+        Search
+      </button>
+    </div>
+    <script src="dist/main.js" defer></script>
+  </body>
+</html>
