@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Rick and Morty API — Results</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <a class="back-link" href="index.html">← Back to search</a>
+    <h1>Search Results :</h1>
+    <div class="results-list" id="results-list">
+      <p class="empty-state">No results found.</p>
+    </div>
+
+    <script>
+      const list = document.getElementById("results-list");
+
+      const raw = sessionStorage.getItem("rm_results");
+      const type = sessionStorage.getItem("rm_type"); // "character" | "location" | "episode"
+
+      if (!raw || !type) {
+        list.innerHTML =
+          '<p class="empty-state">No results to display. Go back and search!</p>';
+      } else {
+        const data = JSON.parse(raw); // always an array (top 5 already sliced by main.ts)
+        list.innerHTML = "";
+
+        if (data.length === 0) {
+          list.innerHTML =
+            '<p class="empty-state">No results found for your query.</p>';
+        } else if (type === "character") {
+          data.forEach(renderCharacter);
+        } else if (type === "location") {
+          data.forEach(renderLocation);
+        } else if (type === "episode") {
+          data.forEach(renderEpisode);
+        }
+      }
+
+      function renderCharacter(char) {
+        const statusClass =
+          char.status?.toLowerCase() === "alive"
+            ? "alive"
+            : char.status?.toLowerCase() === "dead"
+              ? "dead"
+              : "unknown";
+
+        const card = document.createElement("div");
+        card.className = "result-card";
+        card.innerHTML = `
+          <img class="card-image" src="${char.image}" alt="${char.name}" />
+          <div class="card-divider"></div>
+          <div class="card-info">
+            <p class="card-name">${char.name}</p>
+            <div class="card-status">
+              <span class="status-dot ${statusClass}"></span>
+              <span>${char.status ?? "Unknown"}</span>
+            </div>
+            <hr class="card-hr" />
+            <div class="card-meta">
+              <span>Origin : <span class="accent">${char.origin?.name ?? "Unknown"}</span></span>
+              <span>Last Known Location</span>
+              <span class="accent">${char.location?.name ?? "Unknown"}</span>
+            </div>
+          </div>
+        `;
+        list.appendChild(card);
+      }
+
+      function renderLocation(loc) {
+        const card = document.createElement("div");
+        card.className = "result-card location-card";
+        card.innerHTML = `
+          <div class="card-info">
+            <p class="card-name">${loc.name}</p>
+            <hr class="card-hr" />
+            <div class="tag-row">
+              <span class="tag">Type : <span class="tag-value">${loc.type || "—"}</span></span>
+              <span class="tag">Dimension : <span class="tag-value">${loc.dimension || "—"}</span></span>
+              <span class="tag">Residents : <span class="tag-value">${loc.residents?.length ?? 0}</span></span>
+            </div>
+          </div>
+        `;
+        list.appendChild(card);
+      }
+
+      function renderEpisode(ep) {
+        const card = document.createElement("div");
+        card.className = "result-card episode-card";
+        card.innerHTML = `
+          <div class="card-info">
+            <p class="card-name">${ep.name}</p>
+            <hr class="card-hr" />
+            <div class="tag-row">
+              <span class="tag">Code : <span class="tag-value">${ep.episode || "—"}</span></span>
+              <span class="tag">Air Date : <span class="tag-value">${ep.air_date || "—"}</span></span>
+              <span class="tag">Characters : <span class="tag-value">${ep.characters?.length ?? 0}</span></span>
+            </div>
+          </div>
+        `;
+        list.appendChild(card);
+      }
+    </script>
+  </body>
+</html>

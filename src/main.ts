@@ -35,8 +35,15 @@ interface Episode extends APIcontent {
   characters: string[];
 }
 
+interface Info {
+  count: number;
+  pages: number;
+  next: string | null;
+  prev: string | null;
+}
+
 interface Result<T> {
-  info: any; //this is temporary, i will fix this!
+  info: Info;
   results: T[];
 }
 
@@ -220,7 +227,13 @@ episodeSearchID?.addEventListener("click", (e: MouseEvent) => {
 
 charQuery?.addEventListener("click", (e: MouseEvent) => {
   if (!charName || !charStatus || !charGender || !charSpecies) return;
-  if (charName.value == "") return; //can't take an empty string
+  if (
+    charName.value == "" &&
+    charStatus.value == "" &&
+    charGender.value == "" &&
+    charSpecies.value == ""
+  )
+    return; //can't take an empty string
   handleQueryClick("queryChar", {
     name: charName,
     status: charStatus,
@@ -262,12 +275,15 @@ async function handleIDClick<T extends keyof IDMap>(
   const x: number[] = idInput.value.split(",").map(Number).filter(Boolean);
   const uniqueX: number[] = [...new Set(x)];
 
-  const output = //based on the type return the correct API link
+  const output =
     `https://rickandmortyapi.com/api/${type}/` + JSON.stringify(uniqueX);
 
   try {
     const object: APIResponseMap[T] = await fetchData(output);
-    console.log(object);
+    const top5 = (object as IDMap[T]).slice(0, 5);
+    sessionStorage.setItem("rm_results", JSON.stringify(top5));
+    sessionStorage.setItem("rm_type", type);
+    window.location.href = "results.html";
   } catch (error) {
     if (error instanceof Error) {
       console.warn(`ERROR! error status : ${error.message}`);
@@ -309,7 +325,11 @@ async function handleQueryClick<T extends keyof InputMap>( //query input takes t
 
   try {
     const object: APIResponseMap[T] = await fetchData(output);
-    console.log(object);
+    const results = (object as Result<Character | Location | Episode>).results;
+    const top5 = results.slice(0, 5);
+    sessionStorage.setItem("rm_results", JSON.stringify(top5));
+    sessionStorage.setItem("rm_type", tag);
+    window.location.href = "results.html";
   } catch (error) {
     if (error instanceof Error) {
       console.warn(`ERROR! error status : ${error.message}`);
